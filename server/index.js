@@ -23,6 +23,12 @@ app.get('/files/download', fileController.downloadFile);
 app.put('/user/update-score/:id', userController.updateScore);
 
 
+app.use(express.static(path.join(__dirname, '../dist/project-for-beit-chinuch/browser')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/project-for-beit-chinuch/browser/index.html'));
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
