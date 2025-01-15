@@ -23,6 +23,7 @@ app.get('/files/download', fileController.downloadFile);
 app.put('/user/update-score/:id', userController.updateScore);
 
 
+//for running this app as an applection and not a website.
 app.use(express.static(path.join(__dirname, '../dist/project-for-beit-chinuch/browser')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/project-for-beit-chinuch/browser/index.html'));
