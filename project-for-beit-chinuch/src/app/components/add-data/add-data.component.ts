@@ -16,10 +16,17 @@ export class AddDataComponent implements OnInit {
   ngOnInit(): void {
     Swal.fire({
       title: "!אזהרה",
-      text: "שימו לב לפני שמעלים נתונים להוריד קובץ של כל התלמידות עם הניקוד המעודכן ולהוסיף על זה תלמידות חדשות. אם לא הנתונים והניקוד עלולים לאבד",
-      icon: "warning"
+      html: `
+        <div>
+          !שימו לב להעלאות רק קובץ אקסל בפורמט המתאים
+          <br/>
+          <span style="font-weight: bold;">המלצה:</span> כדאי להוריד קודם קובץ אקסל בפורמט המתאים 
+        </div>
+      `,
+      icon: "warning",
     });
   }
+
 
 
   onFileSelected(event: Event): void {
