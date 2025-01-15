@@ -81,6 +81,50 @@ Ensure the Excel file follows the format:
 | 123456789    | שרה כהן      | 3     | 10    | 85    | 2               |
 | 987654321    | רחל לוי      | 2     | 9     | 90    | 3               |
 
+---
+
+## Packaging the Project for Local Use
+The project can be packaged to run locally on a USB stick for users without Node.js installed.
+
+### Packaging Steps
+1. **Build the Angular Application**:
+   - Run:
+     ```bash
+     ng build --configuration production
+     ```
+   - The built files will be located in the `dist/` folder.
+
+2. **Set Up the Node.js Server**:
+   - Ensure the `server/` folder contains:
+     - `index.js` (the server entry point).
+     - `node_modules` (with all required dependencies installed).
+
+3. **Include a Portable Node.js Version**:
+   - Download the portable Node.js version for Windows.
+   - Place the extracted folder in the project directory.
+
+4. **Create a Start Script**:
+   - Add a `start.bat` file with the following content:
+     ```bat
+     @echo off
+     SET /p PORT=Enter the desired port (default is 3000):
+     IF "%PORT%"=="" SET PORT=3000
+     echo Starting server on port %PORT%
+     .\node-vXX.X.X-win-x64\node.exe server\index.js
+     pause
+     ```
+   - Replace `node-vXX.X.X-win-x64` with the actual folder name of the portable Node.js version.
+
+5. **Package the Project**:
+   - Ensure the folder structure includes:
+     - `dist/` (Angular build).
+     - `server/` (Node.js server).
+     - Portable Node.js folder.
+     - `start.bat`.
+
+6. **Transfer to USB**:
+   - Copy the entire folder to a USB drive.
+   - Users can double-click `start.bat` to run the application.
 
 ---
 
@@ -88,5 +132,4 @@ Ensure the Excel file follows the format:
 For assistance or inquiries regarding this system, please contact the project administrator.
 
 ---
-
 
