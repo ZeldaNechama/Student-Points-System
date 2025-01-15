@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עיצוב מרשים</title>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a routerLink="/"><i class="pi pi-home" style="font-size: 1rem; color: #fff; padding: 5px;"></i></a>
+    </nav>
+
+    <div class="main-content">
+        <img src="/glitter-stars.gif" alt="gold stars" class="gif">
+        <div class="text-content">
+            <p>שלום ל <span class="highlight">{{currentUser?.['שם']}}</span></p>
+            <p>נוספו לך <span class="highlight">{{score}}</span> נקודות </p>
+            <p>סה"כ צברת עד כה <span class="highlight">{{currentUser?.['ניקוד']}}</span></p>
+        </div>
+        <img src="/glitter-stars.gif" alt="gold stars" class="gif">
+    </div>
+</body>
+
+</html>

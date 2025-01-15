@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a routerLink="/"><i class="pi pi-home" style="font-size: 1rem; color: #fff; padding: 5px;"></i></a>
+    </nav>
+    <div class="flex-container">
+        <label for="admin-password">הכנס סיסמת מנהל</label>
+        <input id="admin-password" type="password" class="admin-password" [(ngModel)]="password">
+        <p-button (click)="login()" label="התחברות" severity="contrast"></p-button>
+    </div>
+    
+</body>
+
+
+</html>

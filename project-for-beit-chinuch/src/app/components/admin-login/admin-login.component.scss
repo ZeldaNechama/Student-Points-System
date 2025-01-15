@@ -1,0 +1,41 @@
+.top-nav{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 4rem;
+    background-color: black;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+   
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 300px; 
+    margin: 0 auto; 
+  
+    label {
+      font-size: 1rem;
+      color: #333;
+    }
+  
+    .admin-password {
+      width: 100%; 
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  
+      &:focus {
+        border-color: black;
+        outline: none;
+      }
+    }
+  
+    p-button {
+      width: 100%; 
+      text-align: center;
+    }
+  }
+  

@@ -1,0 +1,9 @@
+<app-top-nav></app-top-nav>
+
+<div class="score-container">
+  <p class="current-score">ניקוד נוכחי: <span>{{ currentScore }}</span></p>
+  <input type="number" #newScoreInput class="new-score-input" placeholder="הכנס ניקוד חדש" />
+  <button class="change-score-button" (click)="changeScore(newScoreInput.valueAsNumber)">
+    שנה ניקוד
+  </button>
+</div>

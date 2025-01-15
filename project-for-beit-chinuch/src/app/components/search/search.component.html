@@ -1,0 +1,37 @@
+<app-top-nav></app-top-nav>
+
+<div class="container">
+    <div class="div-btn">
+        <button class="search-btn" (click)="searchStudent()">חיפוש לפי בת</button>
+        <button class="search-btn" (click)="searchClass()">חיפוש לפי כיתה</button>
+    </div>
+
+    <div *ngIf="showStudendsSearc" class="search-form">
+        <label for="">הכניסי ת.ז. של תלמידה</label>
+        <input type="text" class="form-control" [(ngModel)]="studentPassword" />
+        <div class="btn-group">
+            <button class="btn btn-secondary" (click)="clearStudent()">נקה</button>
+            <button class="btn btn-primary" (click)="findStudent()">
+                <i class="pi pi-search"></i> חיפוש
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="showClassSearch" class="search-form">
+        <label for="">הכניסי שכבה</label>
+        <input type="text" class="form-control" [maxLength]="1" [(ngModel)]="grade">
+        <label for="">הכניסי כיתה</label>
+        <p-inputnumber [(ngModel)]="classNumber" inputId="minmaxfraction" mode="decimal" [maxFractionDigits]="1" />
+        <div class="btn-group">
+            <button class="btn btn-secondary" (click)="clearClass()">נקה</button>
+            <button class="btn btn-primary" (click)="findClass()">
+                <i class="pi pi-search"></i>חיפוש
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="!showSearch" class="results">
+        <p *ngIf="showStudendsSearc" class="score-text">ניקוד תלמידה: {{ curentStudent['ניקוד'] }}</p>
+        <p *ngIf="showClassSearch" class="score-text">ניקוד כיתה: {{ ansScore }}</p>
+    </div>
+</div>

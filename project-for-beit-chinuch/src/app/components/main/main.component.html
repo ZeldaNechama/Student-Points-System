@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a routerLink="admin-login"><i class="pi pi-sign-in"
+                style="font-size: 1rem; color: #fff; padding: 5px;"></i>התחברות
+            בתור מנהל</a>
+
+    </nav>
+    <div>
+        <img class="logo" src="/logo-lo-yetzuyar-04.jpg" alt="לוגו">
+    </div>
+
+    <div class="flex">
+        <label for="password">.סרקי ברקוד או הכניסי מספר ת.ז.</label>
+        <div class="input-wrapper">
+            <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="password" placeholder=" "
+                (input)="onBarcodeScan($event)" />
+            <i class="pi pi-barcode"></i>
+        </div>
+        <button (click)="updateScore()">עדכן ניקוד</button>
+    </div>
+
+</body>
+
+</html>
