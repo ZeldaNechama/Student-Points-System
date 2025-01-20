@@ -3,8 +3,20 @@ const xlsx = require('xlsx');
 function readExcelFile(filePath) {
     const workbook = xlsx.readFile(filePath);
     const sheetName = workbook.SheetNames[0];
-    return xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+    const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+
+    const processedData = data.map(row => {
+        for (const key in row) {
+            if (!isNaN(row[key])) {
+                row[key] = Number(row[key]);
+            }
+        }
+        return row;
+    });
+
+    return processedData;
 }
+
 
 function writeExcelFile(data, filePath) {
     const worksheet = xlsx.utils.json_to_sheet(data);

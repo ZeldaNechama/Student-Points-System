@@ -12,8 +12,17 @@ function uploadFile(req, res) {
         const newData = readExcelFile(filePath);
         const currentData = readJsonFile(JSON_FILE_PATH);
 
+        const processedData = newData.map(row => {
+            for (const key in row) {
+                if (!isNaN(row[key])) {
+                    row[key] = Number(row[key]);
+                }
+            }
+            return row;
+        });
+
         const dataMap = new Map(currentData.map(item => [item['ת.ז.'], item]));
-        newData.forEach(row => {
+        processedData.forEach(row => {
             const existingRow = dataMap.get(row['ת.ז.']);
             if (existingRow) {
                 dataMap.set(row['ת.ז.'], { ...existingRow, ...row });
@@ -32,6 +41,8 @@ function uploadFile(req, res) {
         res.status(500).json({ message: 'An error occurred while processing the file' });
     }
 }
+
+
 
 function downloadFile(req, res) {
     const data = readJsonFile(JSON_FILE_PATH);
