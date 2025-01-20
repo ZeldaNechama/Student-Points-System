@@ -71,7 +71,7 @@ export class MainComponent {
 
   onBarcodeScan(event: any): void {
     const scannedData = event.target.value;
-    console.log('Scanned Barcode:', scannedData);
+    this.password=scannedData;
   }
 
 
